@@ -97,7 +97,10 @@ class LayoutView {
           $this->render($isLoggedIn, $loginView, $dtv); 
        }
     else{
-
+      if ($loginView->newUserCreated){
+        $this->render($isLoggedIn, $loginView, $dtv); 
+    }
+    else{
       if ($this->checkUrlIfUserPressedNewUser()) {
 
       $this->render($isLoggedIn, $regView, $dtv);
@@ -105,6 +108,9 @@ class LayoutView {
       else{
       $this->render($isLoggedIn, $loginView, $dtv); 
       }
+    }
+
+      
     }
     }
   }
